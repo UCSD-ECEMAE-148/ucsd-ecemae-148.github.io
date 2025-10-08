@@ -1140,7 +1140,7 @@
 <p>These instructions are new for Fall 2024, and the donkey_sim app was just compiled for ARM macs by me (Alexander). Please let me know about any issues/improvements!  </p>
 <p>For this process to run, you'll need the xcode developer tools installed. You can run <code>xcode-select --install</code> in the terminal to get the developer tools. If you are low on storage space, you may be able to just install python 3.10 on your mac, but I have not had the chance to test this myself.</p>
 <p>Download the donkeysim video game from here:<br />
-<a href="https://drive.google.com/file/d/1FRDT7DiuKDhAuoKyqt8KyMnRAYsALx5Y/view?usp=sharing">https://drive.google.com/file/d/1FRDT7DiuKDhAuoKyqt8KyMnRAYsALx5Y/view?usp=sharing</a><br />
+<a href="https://drive.google.com/file/d/1SWGTddp6XaK2ZhvD4M6FVbJPb5ujszFs/view?usp=share_link">https://drive.google.com/file/d/1SWGTddp6XaK2ZhvD4M6FVbJPb5ujszFs/view?usp=share_link</a>
 To run the app, you may need to go to your settings-&gt;security&amp;privacy-&gt;general and click "run anyway," although it is not from an identified developer.  <br />
 Note that the arm64 compiled simulator does have a known bug where there are a few invisible cones outside the track that your car can collide with. I am working on fixing it!<br />
 Note: If you're using this guide to install on linux, windows, or an intel mac download the simulator from here:
@@ -1274,7 +1274,7 @@ Note that this training generates a graph of epochs vs loss that you can view in
 <p>Set this to false. Now, in order to record data, you must press the record button to begin input recording. The terminal will print out when recording is enabled and the amount of samples.</p>
 <p>If you increase the number of samples recorded after training a model, you can train a new model that uses all of the data in the <code>data</code> folder (old and new &mdash; be sure to give it a different name).</p>
 <p>To train data from a specific tub and transfer to a previous model:</p>
-<pre><code>python3 train.py --tub ~/projects/d4_sim/data/TUB_NAME  --transfer=models/PREVIOUS_MODEL.h5  --model=models/NEW_MODEL.h5
+<pre><code>donkey train --tub=~/projects/d4_sim/data/TUB_NAME  --transfer=models/PREVIOUS_MODEL.h5  --model=models/NEW_MODEL.h5
 </code></pre>
 <p>Tubs are subsections of the data folder that you may create to separate training data. To use all the data in the <code>data</code> folder, do not include a tub name after <code>~/projects/d4_sim/data/</code> in the tub argument.</p>
 <h3 id="ucsd-gpu-cluster-instructions">UCSD GPU Cluster Instructions</h3>
@@ -1357,7 +1357,7 @@ cd d4_sim
 <pre><code>python train.py --tub=data/tub1,data/tub2 --model=models/MODEL_NAME.h5 --type=linear
 </code></pre>
 <p>To alter a previous model with new data:</p>
-<pre><code>python train.py --tub=data/tub1 --model=models/NEW_MODEL_NAME.h5 --transfer=models/OLD_MODEL_NAME.h5
+<pre><code>donkey train --tub=data/tub1 --model=models/NEW_MODEL_NAME.h5 --transfer=models/OLD_MODEL_NAME.h5
 </code></pre>
 <p><strong>Note</strong> : If "imgaug" is not availible and Donkeysim generates an error, run </p>
 <pre><code>pip install imgaug
